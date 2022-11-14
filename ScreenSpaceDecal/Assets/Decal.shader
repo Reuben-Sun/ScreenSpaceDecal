@@ -92,7 +92,7 @@ Shader "ScreenSpace/Decal"
                 o.screenPos = ComputeScreenPos(o.positionCS);
                 
                 float3 viewRay = vertexPositionInput.positionVS;
-                o.viewRayOS.w = viewRay.z;
+                o.viewRayOS.w = viewRay.z;  //垂直方向的距离
                 viewRay *= -1;
                 float4x4 ViewToObjectMatrix = mul(UNITY_MATRIX_I_M, UNITY_MATRIX_I_V);
                 o.viewRayOS.xyz = mul((float3x3)ViewToObjectMatrix, viewRay);
